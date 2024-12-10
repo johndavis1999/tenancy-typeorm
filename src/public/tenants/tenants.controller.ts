@@ -32,7 +32,7 @@ export class TenantsController {
   }
 
   @Get(':id')
-  public async getTenant(@Param('id') id: number): Promise<Tenant> {
+  public async getTenant(@Param('id') id: string): Promise<Tenant> {
     return this.tenants.findOne({ where: { id } }); // Busca un tenant por ID
   }
 }

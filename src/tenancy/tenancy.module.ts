@@ -12,7 +12,7 @@ import { Request } from 'express';
       provide: TENANT_DATA_SOURCE,
       scope: Scope.REQUEST,
       useFactory: (request: Request) => {
-        const tenantId = parseInt(request.header('x-tenant-id'), 10);
+        const tenantId = request.header('x-tenant-id');
         if (tenantId) {
           return getTenantDataSource(tenantId);
         }

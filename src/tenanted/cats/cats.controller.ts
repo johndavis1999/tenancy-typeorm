@@ -12,7 +12,7 @@ export class CatsController {
     //console.log('DataSource:', dataSource); // Depuración para ver si el dataSource está definido
 
     if (!dataSource) {
-      throw new Error('DataSource is undefined');
+      throw new Error('DataSource is undefined tenant');
     }
     this.cats = dataSource.getRepository(Cat); // Verifica que el repositorio se obtenga del data source correcto
   }

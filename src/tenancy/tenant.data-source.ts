@@ -5,7 +5,7 @@ import { Logger } from '@nestjs/common';
 
 const logger = new Logger('tenantDataSource');
 
-export async function getTenantDataSource(tenantId: number): Promise<DataSource> {
+export async function getTenantDataSource(tenantId: string): Promise<DataSource> {
   const databaseName = tenantDatabaseName(tenantId);
 
   return dataSourceManager.getOrCreate(databaseName, async () => {
@@ -16,7 +16,7 @@ export async function getTenantDataSource(tenantId: number): Promise<DataSource>
   });
 }
 
-export function tenantDatabaseName(tenantId: number): string {
+export function tenantDatabaseName(tenantId: string): string {
   return `${TENANT_DATABASE_PREFIX}${tenantId}`;
 }
 
